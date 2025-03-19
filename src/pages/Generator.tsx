@@ -12,7 +12,6 @@ const Generator = () => {
   const navigate = useNavigate();
   const [step, setStep] = useState(1);
   const [postIdea, setPostIdea] = useState('');
-  const [idealOutcome, setIdealOutcome] = useState('');
   const [selectedStyle, setSelectedStyle] = useState('professional');
   const [error, setError] = useState('');
 
@@ -48,7 +47,6 @@ const Generator = () => {
 
   const handleReset = () => {
     setPostIdea('');
-    setIdealOutcome('');
     setSelectedStyle('professional');
     setStep(1);
   };
@@ -97,19 +95,6 @@ const Generator = () => {
                     required
                   />
                   {error && <p className="mt-1 text-sm text-red-500">{error}</p>}
-                </div>
-                
-                <div className="mb-6">
-                  <label htmlFor="idealOutcome" className="block text-gray-700 text-sm font-medium mb-2">
-                    Ideal Outcome (Optional)
-                  </label>
-                  <textarea
-                    id="idealOutcome"
-                    value={idealOutcome}
-                    onChange={(e) => setIdealOutcome(e.target.value)}
-                    placeholder="What do you want to achieve with this post? (e.g., 'Generate discussion about industry trends')"
-                    className="glass-input w-full h-24 rounded-xl px-4 py-3 text-gray-700 focus:outline-none transition-all-300"
-                  />
                 </div>
               </div>
             )}
