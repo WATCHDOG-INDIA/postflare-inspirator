@@ -20,9 +20,9 @@ const Index = () => {
       <Hero />
       
       {/* Features Section */}
-      <section id="features" className="py-20 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+      <section id="features" className="py-16 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
             <div className="inline-block px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-xs font-medium mb-3">
               Features
             </div>
@@ -34,7 +34,7 @@ const Index = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             <div className="glass-card rounded-xl p-6 transition-all-300 hover:shadow-md">
               <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-5">
                 <Sparkles size={20} className="text-blue-600" />
@@ -69,23 +69,23 @@ const Index = () => {
       </section>
       
       {/* Try It Section */}
-      <section className="py-20 px-6 bg-gradient-to-b from-blue-50 to-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
+      <section className="py-16 px-4 bg-gradient-to-b from-blue-50 to-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-10">
             <div className="inline-block px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-xs font-medium mb-3">
               Try It Now
             </div>
             <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
               Create Your LinkedIn Post
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto mb-10">
+            <p className="text-gray-600 max-w-2xl mx-auto mb-8">
               Start with your idea below, and we'll help you craft the perfect post to engage your network.
             </p>
           </div>
           
           <PostForm />
           
-          <div className="mt-12 text-center">
+          <div className="mt-10 text-center">
             <Link 
               to="/generator" 
               className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium transition-all-300 gap-1"
@@ -98,10 +98,10 @@ const Index = () => {
       </section>
       
       {/* Testimonial Section */}
-      <section className="py-20 px-6">
-        <div className="max-w-4xl mx-auto">
-          <div className="glass-card rounded-2xl p-8 md:p-10 transition-all-300">
-            <div className="text-center mb-8">
+      <section className="py-16 px-4">
+        <div className="max-w-3xl mx-auto">
+          <div className="glass-card rounded-2xl p-8 transition-all-300">
+            <div className="text-center mb-6">
               <div className="inline-block px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-xs font-medium mb-3">
                 User Success
               </div>
@@ -110,7 +110,7 @@ const Index = () => {
               </h2>
             </div>
             
-            <blockquote className="text-gray-600 text-center text-lg italic mb-8">
+            <blockquote className="text-gray-600 text-center text-lg italic mb-6">
               "POST PRO helped me increase my LinkedIn engagement by 300%. The posts it generates feel authentic and get real responses from my network."
             </blockquote>
             
@@ -128,18 +128,18 @@ const Index = () => {
       </section>
       
       {/* CTA Section */}
-      <section className="py-20 px-6 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
-        <div className="max-w-7xl mx-auto text-center">
+      <section className="py-16 px-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+        <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
             Ready to Create Engaging LinkedIn Content?
           </h2>
-          <p className="text-blue-100 max-w-2xl mx-auto mb-10">
+          <p className="text-blue-100 max-w-2xl mx-auto mb-8">
             Join thousands of professionals who use POST PRO to increase their visibility and engagement on LinkedIn.
           </p>
           
           <Link
             to="/generator"
-            className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-3 rounded-full font-medium transition-all-300 shadow-lg hover:shadow-xl inline-block"
+            className="bg-white text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-full font-medium transition-all-300 shadow-lg hover:shadow-xl inline-block"
           >
             Get Started — It's Free
           </Link>

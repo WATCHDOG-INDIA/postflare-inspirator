@@ -35,7 +35,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-6 relative overflow-hidden">
+    <div className="min-h-screen flex flex-col items-center justify-center px-4 relative overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-white -z-10"></div>
       
@@ -43,7 +43,7 @@ const Hero = () => {
       <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl animate-pulse-slow opacity-70 -z-10"></div>
       <div className="absolute bottom-1/4 left-1/3 w-80 h-80 bg-blue-50 rounded-full mix-blend-multiply filter blur-3xl animate-pulse-slow opacity-60 -z-10"></div>
       
-      <div className="max-w-4xl mx-auto text-center">
+      <div className="max-w-3xl mx-auto text-center">
         <div className="flex flex-col items-center gap-2 mb-3">
           <div className="px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-xs font-medium">
             LinkedIn Content Generator
@@ -52,7 +52,7 @@ const Hero = () => {
         
         <h1 
           ref={titleRef}
-          className="text-4xl md:text-6xl font-display font-bold mb-6" 
+          className="text-4xl md:text-5xl font-display font-bold mb-5" 
         >
           Turn Ideas into 
           <span className="text-gradient"> Viral LinkedIn Posts</span>
@@ -60,24 +60,24 @@ const Hero = () => {
         
         <p 
           ref={subtitleRef}
-          className="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-auto opacity-0"
+          className="text-lg text-gray-600 mb-8 max-w-xl mx-auto opacity-0"
         >
           Create professional, casual, or storytelling LinkedIn posts that get engagement with our AI-powered content generator.
         </p>
         
         <div 
           ref={ctaRef}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0"
+          className="flex flex-col sm:flex-row items-center justify-center gap-3 opacity-0"
         >
           <Link
             to="/generator"
-            className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-medium transition-all-300 shadow-lg hover:shadow-xl"
+            className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-medium transition-all-300 shadow-lg hover:shadow-xl"
           >
             Create Your Post
           </Link>
           <a 
             href="#features"
-            className="w-full sm:w-auto px-8 py-3 text-gray-600 hover:text-blue-600 font-medium transition-all-300"
+            className="w-full sm:w-auto px-6 py-3 text-gray-600 hover:text-blue-600 font-medium transition-all-300"
           >
             Learn More
           </a>
