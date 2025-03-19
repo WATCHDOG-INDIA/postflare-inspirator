@@ -8,7 +8,9 @@ const Hero = () => {
   const ctaRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Set initial opacity to ensure visibility even before animation
     if (titleRef.current) {
+      titleRef.current.style.opacity = '1';
       titleRef.current.classList.add('animate-fade-down');
     }
     
@@ -50,7 +52,7 @@ const Hero = () => {
         
         <h1 
           ref={titleRef}
-          className="text-4xl md:text-6xl font-display font-bold mb-6 opacity-0" 
+          className="text-4xl md:text-6xl font-display font-bold mb-6" 
         >
           Turn Ideas into 
           <span className="text-gradient"> Viral LinkedIn Posts</span>

@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 
 interface StyleSelectorProps {
   selectedStyle: string;
@@ -43,7 +43,7 @@ const StyleSelector: React.FC<StyleSelectorProps> = ({ selectedStyle, onStyleSel
             }`}
           >
             <div className="flex flex-col items-center text-center">
-              <div className="text-2xl mb-2 hidden">{style.icon}</div>
+              <div className="text-2xl mb-2">{style.icon}</div>
               <h4 className="text-base font-medium mb-2">{style.title}</h4>
               <p className="text-sm text-gray-500">{style.description}</p>
             </div>
