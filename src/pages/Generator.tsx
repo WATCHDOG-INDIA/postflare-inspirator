@@ -118,15 +118,6 @@ const Generator = () => {
                   postIdea={postIdea} 
                   selectedStyle={selectedStyle} 
                 />
-                
-                <div className="mt-8 text-center">
-                  <button
-                    onClick={handleReset}
-                    className="text-blue-600 hover:text-blue-800 font-medium transition-all-300"
-                  >
-                    Create Another Post
-                  </button>
-                </div>
               </div>
             )}
             

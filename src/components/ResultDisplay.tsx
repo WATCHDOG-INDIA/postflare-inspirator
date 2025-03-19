@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { ClipboardCopy, Sparkles } from 'lucide-react';
+import { ClipboardCopy } from 'lucide-react';
 
 interface ResultDisplayProps {
   postIdea: string;
@@ -11,7 +11,6 @@ const ResultDisplay: React.FC<ResultDisplayProps> = ({ postIdea, selectedStyle }
   const [generatedContent, setGeneratedContent] = useState('');
   const [loading, setLoading] = useState(true);
   const [copied, setCopied] = useState(false);
-  const [showConfetti, setShowConfetti] = useState(false);
 
   useEffect(() => {
     // Simulate API call to Gemini for content generation
@@ -33,13 +32,6 @@ const ResultDisplay: React.FC<ResultDisplayProps> = ({ postIdea, selectedStyle }
     navigator.clipboard.writeText(generatedContent);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
-  };
-
-  const handleGenerateInGemini = () => {
-    // This would ideally open Gemini with prefilled prompt
-    setShowConfetti(true);
-    window.open(`https://gemini.google.com/app`, '_blank');
-    setTimeout(() => setShowConfetti(false), 3000);
   };
 
   return (
@@ -68,23 +60,16 @@ const ResultDisplay: React.FC<ResultDisplayProps> = ({ postIdea, selectedStyle }
           
           <div className="flex justify-center mb-2">
             <button
-              onClick={handleGenerateInGemini}
+              onClick={() => window.location.reload()}
               className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-all-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl hover:from-blue-700 hover:to-blue-800"
             >
-              <Sparkles size={18} />
-              <span>Continue in Gemini</span>
+              <span>Create Another Post</span>
             </button>
           </div>
           
           <p className="text-center text-sm text-gray-500">
-            Fine-tune and customize your post with Google's Gemini AI
+            Start fresh with a new LinkedIn post idea
           </p>
-          
-          {showConfetti && (
-            <div className="fixed inset-0 pointer-events-none z-50">
-              {/* This would be where confetti animation plays */}
-            </div>
-          )}
         </div>
       )}
     </div>
