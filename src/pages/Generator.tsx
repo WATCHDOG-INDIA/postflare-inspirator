@@ -1,7 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import StyleSelector from '../components/StyleSelector';
 import ResultDisplay from '../components/ResultDisplay';
@@ -53,19 +52,19 @@ const Generator = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Navbar />
+      {/* Removed Navbar component */}
       
-      <main className="flex-grow pt-24 pb-20 px-6">
-        <div className="max-w-4xl mx-auto">
+      <main className="flex-grow pt-6 pb-20 px-4 md:px-6">
+        <div className="max-w-5xl mx-auto w-full">
           <button
             onClick={handleBack}
-            className="flex items-center text-gray-500 hover:text-blue-600 mb-8 transition-all-300"
+            className="flex items-center text-gray-500 hover:text-blue-600 mb-6 transition-all-300"
           >
             <ArrowLeft size={16} className="mr-1" />
             <span>{step === 1 ? 'Back to Home' : 'Back'}</span>
           </button>
           
-          <div className="glass-panel rounded-2xl p-8 shadow-sm mb-10 animate-fade-in">
+          <div className="glass-panel rounded-2xl p-6 md:p-8 shadow-sm mb-10 animate-fade-in w-full">
             <div className="flex items-center justify-between mb-8">
               <h1 className="text-2xl font-display font-bold">LinkedIn Post Generator</h1>
               
