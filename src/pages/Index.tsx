@@ -1,10 +1,10 @@
-
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import PostForm from '../components/PostForm';
 import Footer from '../components/Footer';
+import PricingSection from '../components/PricingSection';
 import { ArrowRight, ChevronLeft, ChevronRight, Sparkles, Target, Zap } from 'lucide-react';
 import { 
   Carousel, 
@@ -105,6 +105,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+      
+      {/* Pricing Section */}
+      <PricingSection />
       
       {/* Try It Section */}
       <section className="py-16 px-4 bg-gradient-to-b from-blue-50 to-white">
