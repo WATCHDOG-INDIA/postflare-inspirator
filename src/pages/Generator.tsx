@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import StyleSelector from '../components/StyleSelector';
 import ResultDisplay from '../components/ResultDisplay';
@@ -52,9 +53,9 @@ const Generator = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Removed Navbar component */}
+      <Navbar />
       
-      <main className="flex-grow pt-6 pb-20 px-4 md:px-6">
+      <main className="flex-grow pt-24 pb-20 px-4 md:px-6">
         <div className="max-w-5xl mx-auto w-full">
           <button
             onClick={handleBack}
