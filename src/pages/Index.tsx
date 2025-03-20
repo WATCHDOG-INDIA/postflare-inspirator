@@ -114,7 +114,7 @@ const Index = () => {
               Try It Now
             </div>
             <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-              Create Your LinkedIn Post
+              Create Your First LinkedIn Post
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto mb-8">
               Start with your idea below, and we'll help you craft the perfect post to engage your network.
