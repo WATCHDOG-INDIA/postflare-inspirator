@@ -1,13 +1,15 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
-import { supabase } from '@/integrations/supabase/client';
+import { ArrowLeft, Mail } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import Footer from '../components/Footer';
+import { auth } from '../integrations/firebase/client';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { useAuth } from '../contexts/AuthContext';
 
 const Auth = () => {
   const [email, setEmail] = useState('');
@@ -16,24 +18,30 @@ const Auth = () => {
   const [isSignUp, setIsSignUp] = useState(false);
   const navigate = useNavigate();
   const { toast } = useToast();
+  const { user, signInWithGoogle } = useAuth();
+  
+  useEffect(() => {
+    // Redirect if already authenticated
+    if (user) {
+      navigate('/');
+    }
+  }, [user, navigate]);
 
-  const handleAuth = async (e: React.FormEvent) => {
+  const handleEmailAuth = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
 
     try {
       if (isSignUp) {
         // Sign up flow
-        const { error } = await supabase.auth.signUp({ email, password });
-        if (error) throw error;
+        await createUserWithEmailAndPassword(auth, email, password);
         toast({
-          title: "Check your email!",
-          description: "We've sent you a confirmation link to complete your registration.",
+          title: "Account created!",
+          description: "Your account has been created successfully.",
         });
       } else {
         // Sign in flow
-        const { error } = await supabase.auth.signInWithPassword({ email, password });
-        if (error) throw error;
+        await signInWithEmailAndPassword(auth, email, password);
         navigate('/');
       }
     } catch (error: any) {
@@ -47,13 +55,22 @@ const Auth = () => {
     }
   };
 
+  const handleGoogleSignIn = async () => {
+    try {
+      await signInWithGoogle();
+      navigate('/');
+    } catch (error) {
+      // Error handling is done in the context
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       <main className="flex-grow pt-6 pb-20 px-4 md:px-6">
         <div className="max-w-md mx-auto w-full mt-10">
           <button
             onClick={() => navigate('/')}
-            className="flex items-center text-gray-500 hover:text-blue-600 mb-6 transition-all-300"
+            className="flex items-center text-gray-500 hover:text-blue-600 mb-6 transition-all duration-300"
           >
             <ArrowLeft size={16} className="mr-1" />
             <span>Back to Home</span>
@@ -64,7 +81,25 @@ const Auth = () => {
               {isSignUp ? 'Create an Account' : 'Sign In to POST PRO'}
             </h1>
             
-            <form onSubmit={handleAuth} className="space-y-6">
+            <Button 
+              onClick={handleGoogleSignIn}
+              className="w-full flex items-center justify-center gap-2 bg-white text-gray-800 hover:bg-gray-100 border border-gray-300 mb-6"
+              disabled={isLoading}
+            >
+              <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" className="w-5 h-5" alt="Google logo" />
+              <span>Continue with Google</span>
+            </Button>
+            
+            <div className="relative my-6">
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full border-t border-gray-300"></div>
+              </div>
+              <div className="relative flex justify-center text-sm">
+                <span className="px-2 bg-white text-gray-500">Or continue with email</span>
+              </div>
+            </div>
+            
+            <form onSubmit={handleEmailAuth} className="space-y-6">
               <div className="space-y-2">
                 <Label htmlFor="email">Email</Label>
                 <Input
