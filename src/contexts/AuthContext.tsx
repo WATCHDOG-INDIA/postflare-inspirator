@@ -33,6 +33,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setIsLoading(false);
+      console.log("Auth state changed:", currentUser ? "User logged in" : "User logged out");
     });
 
     return () => unsubscribe();
@@ -40,16 +41,22 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const signInWithGoogle = async () => {
     try {
+      console.log("Attempting Google sign in...");
       const provider = new GoogleAuthProvider();
-      await signInWithPopup(auth, provider);
+      provider.setCustomParameters({
+        prompt: 'select_account'
+      });
+      const result = await signInWithPopup(auth, provider);
+      console.log("Sign in successful:", result.user.displayName);
       toast({
         title: "Sign in successful",
         description: "You are now signed in with Google",
       });
     } catch (error: any) {
+      console.error("Google sign in error:", error);
       toast({
         title: "Authentication error",
-        description: error.message,
+        description: error.message || "Failed to sign in with Google",
         variant: "destructive",
       });
     }
